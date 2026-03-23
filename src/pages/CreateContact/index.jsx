@@ -1,12 +1,8 @@
 import { CreateContactForm } from "../../components";
 
-const CreateClient = () => {
+const CreateContact = () => {
 	return (
-		<>
-			<section id="center">
-				<CreateContactForm />
-      </section>
-		</>
+		<CreateContactForm />
 	)
 }
-export default CreateClient;
+export default CreateContact;

@@ -2,11 +2,7 @@ import { CreateClientForm } from "../../components";
 
 const CreateClient = () => {
 	return (
-		<>
-			<section id="center">
-				<CreateClientForm />
-      </section>
-		</>
+		<CreateClientForm />
 	)
 }
 export default CreateClient;

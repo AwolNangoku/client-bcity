@@ -1,27 +1,25 @@
+import { useNavigate } from "react-router";
+import { CreateAction, HeadersWrapper } from "../../components";
 import Client from "./Client";
-import "./index.css";
+import { routes } from "../../pageRoutes";
+import { useClients } from "../../hooks";
 
 const Clients = () => {
-	const clients = [
-		{
-			name: "James Moon",
-			clientCode: "JM0001",
-			numberOfContacts: 2
-		},
-		{
-			name: "Oka Foo",
-			clientCode: "OKF0001",
-			numberOfContacts: 3
-		}
-	];
+	const navigate = useNavigate();
+	const { clients } = useClients();
 
 	return (
-		<div className="center">
-			<div className="headers-wrapper">
+		<>
+			<CreateAction
+				title="Create Client"
+				onCreate={() => navigate(routes.createClient)}
+			/>
+
+			<HeadersWrapper>
 				<div>Name</div>
 				<div>Client Code</div>
 				<div>Number Of Contacts</div>
-			</div>
+			</HeadersWrapper>
 
 			{
 				clients.length > 0 ? (
@@ -32,9 +30,9 @@ const Clients = () => {
 							numberOfContacts={aClient.numberOfContacts}
 						/>
 					))
-				) : (<div>No clients</div>)
+				) : (<div>No client(s) found</div>)
 			}
-		</div>
+		</>
 	)
 }
 export default Clients;
